@@ -22,6 +22,8 @@ _column name translation.txt tells the meaning of the column names.
 
 _column name translation.txt tells the meaning of the column names.
 
+* NPI policies.xlsx (in Chinese) summarizes the major lockdown policies in the five cities that experienced lockdowns.
+
 ## Codes
 
 A python function for calculating the difference-in-difference effects are provided in calcDID.txt.
