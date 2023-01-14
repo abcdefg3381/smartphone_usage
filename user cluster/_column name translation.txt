@@ -1,0 +1,23 @@
+
+    titleDict = {
+        'topic0': 'Binge-watchers',
+        'topic1': 'New parents',
+        'topic2': 'Travellers',
+        'topic3': 'Adolescents & young adults',
+        'topic4': 'Love hunters',
+        'topic5': 'Homemakers',
+        'topic6': 'White collars',
+        'topic7': 'Parents with small children',
+        'topic8': 'Gamers',
+        'topic9': 'Job hunters',
+        'topic10': 'Photoshoppers',
+        'topic11': 'New middle class',
+        'topic12': 'Spenders',
+        'topic13': 'News audience',
+        'topic14': 'Home shoppers',
+        'topic15': 'Telecommuters',
+        'topic16': 'Regular users',
+        'topic17': 'Sophisticated users',
+        'topic18': 'Drivers',
+        'topic19': 'Petty investors',
+    }

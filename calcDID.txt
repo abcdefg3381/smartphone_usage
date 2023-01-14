@@ -1,0 +1,35 @@
+# use: clfe = calcDID(app_series_in_lockdown_city, app_series_in_control_city, app_name, lockdown_start_date, lockdown_end_date)
+def calcDID(treated, control, column, lockdown_begin, lockdown_lift):
+    # label the treated data with time periods
+    treated['Validation'] = 1 * (treated['dayno_aligned'] < -30)
+    treated['After'] = 1 * treated['dayno_aligned'].between(lockdown_lift, lockdown_lift + 30)
+    treated['LongTerm'] = 1 * (treated['dayno_aligned'] > (lockdown_lift + 30))
+    treated['Begin'] = 1 * treated['dayno_aligned'].between(0,14)
+    treated['During'] = 1 * treated['dayno_aligned'].between(14, lockdown_lift)
+
+    # label the control data with time periods
+    control['Validation'] = 0
+    control['Begin'] = 0
+    control['During'] = 0
+    control['After'] = 0
+    control['LongTerm'] = 0
+
+    # label the city names
+    treated['city'] = 'T'
+    control['city'] = 'C'
+
+    # concatnate the two Series objects
+    df = pd.concat([treated, control])
+
+    # set index with city name and dates
+    df = df.set_index(['city', 'dayno_aligned'])
+
+    # DID model
+    mod = lm.PanelOLS.from_formula(
+        column +
+        '''~Validation + Begin + During + After + LongTerm + EntityEffects + TimeEffects''',
+        df)
+
+    # fit model
+    clfe = mod.fit(cov_type='clustered', cluster_time=True)
+    return clfe
