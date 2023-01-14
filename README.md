@@ -22,7 +22,7 @@ _column name translation.txt tells the meaning of the column names.
 
 _column name translation.txt tells the meaning of the column names.
 
-* NPI policies.xlsx (in Chinese) summarizes the major lockdown policies in the five cities that experienced lockdowns.
+* NPI policies.xlsx (in Chinese) summarizes <strong>the major lockdown policies</strong> in the five cities that experienced lockdowns.
 
 ## Codes
 
